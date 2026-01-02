@@ -15,7 +15,8 @@
     + HTTP client
         + Retrofit(Android首选)
         + Ktor(KMP首选)
-    + ksp plugin
+    + Annotation processor plugin
+        + ksp
     + Image Loading
         + Coil
     + DI
@@ -61,3 +62,18 @@
                 + hilt-android-compiler
                 + androidx.hilt
             + Roborazzi -- UI截图测试，像素级对比
+
+
+## 如何使用
+
+// TODO
+
+## 已添加的依赖
+
+1. ksp
+2. hilt
+3. room
+4. protobuf datastore
+5. test(包括基本的单元测试支持、仪器化测试核心库、compose ui测试、调试依赖)
+
+> 个人喜欢在build.gradle.kts文件中直接写版本号，很清晰 
