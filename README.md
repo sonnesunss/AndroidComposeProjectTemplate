@@ -61,7 +61,8 @@
                 + hilt-android-testing
                 + hilt-android-compiler
                 + androidx.hilt
-            + Roborazzi -- UI截图测试，像素级对比
+            + Roborazzi  -- UI截图测试，像素级对比
+            + leakcanary -- 内存泄露检测
 
 
 ## 如何使用
