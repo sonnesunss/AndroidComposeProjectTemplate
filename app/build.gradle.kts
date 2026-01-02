@@ -5,6 +5,7 @@ plugins {
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
     id("androidx.room")
+    id("com.google.protobuf") version "0.9.5"
 }
 
 android {
@@ -45,6 +46,23 @@ android {
     // 使用了room gradle plugin必须添加这个设置，指明数据库放置schemas位置
     room {
         schemaDirectory("$projectDir/schemas")
+    }
+}
+
+// Protobuf Task
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:4.32.1"
+    }
+    generateProtoTasks {
+        all().forEach { task ->
+            task.builtins {
+                create("java") {
+                    option("lite")
+                }
+                create("kotlin")
+            }
+        }
     }
 }
 
@@ -90,7 +108,15 @@ dependencies {
     implementation("androidx.room:room-paging:$room_version")
 }
 
-/* --------------- Test -------------------- */
+/* --------------- Protobuf DataStore --------------- */
+dependencies {
+    implementation("androidx.datastore:datastore:1.2.0")
+    // protobuf serialization
+    implementation("com.google.protobuf:protobuf-kotlin-lite:4.32.1")
+}
+
+
+/* --------------- Test ----------------------------- */
 
 /* Unit Test core
 
