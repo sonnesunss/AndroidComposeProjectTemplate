@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     id("com.google.devtools.ksp")
     id("com.google.dagger.hilt.android")
+    id("androidx.room")
 }
 
 android {
@@ -40,6 +41,10 @@ android {
     }
     buildFeatures {
         compose = true
+    }
+    // 使用了room gradle plugin必须添加这个设置，指明数据库放置schemas位置
+    room {
+        schemaDirectory("$projectDir/schemas")
     }
 }
 
