@@ -74,7 +74,7 @@
 1. ksp、room gradle plugin
 2. Hilt
 3. Room(version > 2.6.0) -- with Room Gradle Plugin
-4. Protobuf DataStore
+4. Protobuf + DataStore
 5. Testing(包括基本的单元测试支持、仪器化测试核心库、compose ui测试、调试依赖)
 
 > 个人喜欢在build.gradle.kts文件中直接写版本号，很清晰 
