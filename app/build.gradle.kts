@@ -61,14 +61,31 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.test.manifest)
 }
 
-// Hilt
+/*---------------- Hilt --------------------- */
 dependencies {
     implementation("com.google.dagger:hilt-android:2.57.2")
     ksp("com.google.dagger:hilt-android-compiler:2.57.2")
     implementation("androidx.hilt:hilt-navigation-compose:1.3.0")
 }
 
-/* ----------------Test-------------------- */
+/* --------------- Room -------------------- */
+dependencies {
+    val room_version = "2.8.4"
+
+    implementation("androidx.room:room-runtime:$room_version")
+    ksp("androidx.room:room-compiler:$room_version")
+
+    // optional - Kotlin Extensions and Coroutines support for Room
+    implementation("androidx.room:room-ktx:$room_version")
+
+    // optional - Test helpers
+    testImplementation("androidx.room:room-testing:$room_version")
+
+    // optional - Paging 3 Integration
+    implementation("androidx.room:room-paging:$room_version")
+}
+
+/* --------------- Test -------------------- */
 
 /* Unit Test core
 
@@ -97,11 +114,12 @@ dependencies {
         + androidx.compose.ui-test-manifest -- compose UI debug
  */
 dependencies {
-    // Instrumented tests (AndroidX Test + JUnit 4 扩展)
+    // Instrumented tests core (AndroidX Test + JUnit 4 扩展)
     androidTestImplementation("androidx.test.ext:junit:1.3.0")
     androidTestImplementation("androidx.test:core:1.6.1")
     androidTestImplementation("androidx.test:runner:1.7.0")
     androidTestImplementation("androidx.test:rules:1.7.0")
+
     // Compose UI 测试
     androidTestImplementation("androidx.compose.ui:ui-test-junit4:1.10.0")
     // UI调试用
